@@ -1,0 +1,23 @@
+﻿@model Boox.ViewModels.DeleteBookViewModel
+@{ ViewData["Title"] = "Deleting student"; }
+<div class="row justify-content-center align-items-center">
+
+    <div class="box">
+        @if (!string.IsNullOrWhiteSpace(Model.Message))
+        {
+<div class="text-danger">
+    Incorrect data
+</div> }
+else
+{
+<div>
+    Are you sure you want to delete the book?
+</div>
+
+                <form method="post" asp-action="Delete">
+                    <input type="hidden" asp-for="BookId">
+                    <a asp-action="BooksToRead" class="btn btn-secondary">Back</a>
+                    <button class="btn btn-danger">Delete</button>
+                </form>}
+    </div>
+    </div>

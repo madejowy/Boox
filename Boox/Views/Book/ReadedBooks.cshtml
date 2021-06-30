@@ -1,0 +1,34 @@
+﻿@model Boox.ViewModels.BooksViewModel
+
+@{ ViewData["Title"] = "ReadedBooks"; }
+<div class="box">
+    <table class="table table-striped table-bordered box">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>NumberOfPages</th>
+            <th>Rating</th>
+            <th>Operations</th>
+        </tr>
+
+        @foreach (var item in Model.Books)
+        {
+<tr>
+    <td>@item.Title</td>
+    <td>@item.Author</td>
+    <td>@item.NumberOfPages</td>
+    <td>@item.Rating</td>
+    <td>
+        <a asp-action="Rate" asp-route-id="@item.BookId" class="btn-info p-1">Rate</a>
+    </td>
+</tr>}
+
+    </table>
+
+    <div>
+        Readed books: <strong>@Model.Books.Count</strong>
+    </div>
+    <div>
+        Readed pages: <strong>@Model.Books.Select(x => x.NumberOfPages).Sum()</strong>
+    </div>
+</div>

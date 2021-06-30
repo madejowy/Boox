@@ -1,0 +1,28 @@
+﻿@model Boox.ViewModels.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Register Page";
+}
+   <div id="login-row" class="row justify-content-center align-items-center">
+        <form asp-controller="Account" asp-action="Register" method="post" class="box">
+            <h1 class="text-center mt-3 text-white">REGISTER</h1>
+            <p class="text-secondary text-white-50"> Create new account</p>
+            <div class="form-group">
+                <input type="text" class="form-control" asp-for="Username" placeholder="Username" required="required">
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" asp-for="Password" placeholder="Password" required="required">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" asp-for="RepeatedPassword" placeholder="Repeat Password" required="required">
+                <span asp-validation-for="RepeatedPassword" class="text-danger"></span>
+            </div>
+            <input type="submit" name="" value="Register" href="#">
+            <div class="text-center mt-3 text-white-50"> Already have an account? <a asp-controller="Home" asp-action="Login" class="text-white text-capitalize">Log In here</a></div>
+        </form>
+    </div>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

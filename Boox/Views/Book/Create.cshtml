@@ -1,0 +1,30 @@
+﻿@model Boox.ViewModels.CreateBookViewModel
+
+@{ ViewData["Title"] = "Create"; }
+<div class="row justify-content-center align-items-center">
+
+    <form asp-action="Create" method="post" class="box">
+        <div class="form-group">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Author" class="form-label"></label>
+            <input asp-for="Author" class="form-control">
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumberOfPages" class="form-label"></label>
+            <input asp-for="NumberOfPages" class="form-control">
+            <span asp-validation-for="NumberOfPages" class="text-danger"></span>
+        </div>
+        <a asp-action="BooksToRead" class="btn btn-secondary">Back</a>
+        <button class="btn btn-primary">Add</button>
+    </form>
+
+    @section Scripts
+{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    </div>

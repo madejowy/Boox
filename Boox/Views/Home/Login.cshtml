@@ -1,0 +1,27 @@
+﻿@model Boox.ViewModels.Account.LoginViewModel
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<div id="login-row" class="row justify-content-center align-items-center">
+    <form asp-controller="Account" asp-action="Login" method="post" class="box">
+        <input type="hidden" asp-for="RedirectUrl">
+        <h1 class="text-white">LOGIN</h1>
+        <p class="text-secondary text-white-50"> Enter your login and password!</p>
+        <div class="form-group">
+            <input type="text" class="form-control" asp-for="Username" placeholder="Username" required="required">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" asp-for="Password" placeholder="Password" required="required">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <input type="submit" name="" value="Login" href="#">
+        <div class="text-center mt-3 text-white-50"> Don't have an account? <a asp-controller="Home" asp-action="Register" class="text-white text-capitalize">Register here</a></div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

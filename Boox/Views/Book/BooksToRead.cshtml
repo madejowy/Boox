@@ -1,0 +1,46 @@
+﻿@model Boox.ViewModels.BooksViewModel
+
+@{ ViewData["Title"] = "Books to read"; }
+
+
+@*<div class="mb-3">
+        <form asp-action="Index" method="get">
+            <div class="input-group mb-3">
+                <input asp-for="SearchPhrase" placeholder="Wpisz szukaną frazę" class="form-control">
+                <button class="btn btn-secondary input-group-text">Szukaj</button>
+            </div>
+        </form>
+    </div>*@
+<div class="box">
+    <div class="mb-3 mt-3">
+        <a asp-action="Create" class="btn btn-primary float-right bg-info m-2">Add new book</a>
+    </div>
+
+    <table class="table table-striped table-bordered box">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>NumberOfPages</th>
+            <th>Operations</th>
+        </tr>
+
+        @foreach (var item in Model.Books)
+        {
+<tr>
+    <td>@item.Title</td>
+    <td>@item.Author</td>
+    <td>@item.NumberOfPages</td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.BookId" class="btn-secondary p-1">Edit</a>
+        <a asp-action="Delete" asp-route-id="@item.BookId" class="btn-secondary p-1">Delete</a>
+        <a asp-action="ReadedBook" asp-route-id="@item.BookId" class="btn-info p-1 ">Read</a>
+    </td>
+</tr>
+}
+
+    </table>
+
+    <div>
+        Books to read: <strong>@Model.Books.Count</strong>
+    </div>
+</div>
